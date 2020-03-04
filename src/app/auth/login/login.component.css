@@ -1,0 +1,10 @@
+
+.containner-fluid {
+    background-color: rgba(0, 0, 0,.009) !important;
+    height: 100%;
+}
+.panel-form {
+    max-width: 500px;
+    margin: 0px auto;
+    border: none;
+}

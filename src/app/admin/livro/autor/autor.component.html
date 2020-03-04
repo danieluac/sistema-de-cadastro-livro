@@ -1,0 +1,62 @@
+ 
+  <!-- Modal dor add Autor -->
+  <div class="modal fade show" id="cadAutor" tabindex="-1" data-backdrop="static" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <form [formGroup]="autorForm" (ngSubmit) = "onSubmit()">
+            <div class="modal-body">
+            
+                    <div class="row mb-3">
+                        <div class="col-md-12">
+                            <label for="nomAutorForm">Nome do Autor</label>
+                            <input type="text" formControlName = "nome" class="form-control " id="nomAutorForm" placeholder="Autor" required>
+                        </div>
+                    </div>                
+            </div>
+            <div class="modal-footer bg-blue-dark ">
+            <button type="button" class="btn text-white" data-dismiss="close" (click)= "modalComp.closeOneModal('cadAutor')">Fechar</button>
+            <button type="submit" [disabled] ='!autorForm.valid' class="btn btn-outline-warning text-white">Cadastrar</button>
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade " id="listAutor" tabindex="-1" data-backdrop="static" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-sm" role="document" style="min-width: 450px;" >
+      <div class="modal-content " >
+        <div class="modal-header bg-blue-dark ">
+          <h4>Lista de Autores</h4>
+        </div>
+        <div class="modal-body" >
+                    
+              <input class="form-control mb-1" matInput (keyup)="applyFilter($event)" placeholder="Filtrar">     
+              <div class=" example-container mat-elevation-z1">
+                <table mat-table [dataSource]="dataSource" matSort style="min-width: 100%;">
+                 
+                  <ng-container matColumnDef="nome">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Autor </th>
+                    <td mat-cell *matCellDef="let row"> {{row.nome}} </td>
+                  </ng-container>
+              
+                  <ng-container matColumnDef="opcoes">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Ação </th>
+                    <td mat-cell *matCellDef="let row" [style.color]="row.color">
+                    <button class="btn btn-danger mr-3" (click) ='onDelete(row.id)'><mat-icon>delete_outln</mat-icon></button>
+                      <button class="btn btn-primary" (click)="onUpdate({nome : row.nome, id : row.id})"><mat-icon>launch</mat-icon></button>
+                    </td>
+                  </ng-container>
+              
+                  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                  <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                  </tr>
+                </table>
+              </div>
+        </div>
+          <div class="modal-footer bg-blue-dark ">
+            <button type="button" class="btn text-white" data-dismiss="close" (click)= "modalComp.closeOneModal('listAutor')">Fechar</button>
+          </div>
+      </div>
+    </div>
+  </div>
