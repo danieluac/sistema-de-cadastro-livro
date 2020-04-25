@@ -4,11 +4,13 @@ Trata-se de um pequeno sistema que permite o cadastro de livros em função de u
 O sistema permite: cadastrar livros em função da categoria, listar, actualizar e deletar.
 Também gera uma pequena estatística contabilística dos livros existente e suas categorias.
 
-O Sistema, foi construído usando as seguintes tecnologias:
+# O Sistema, foi construído usando as seguintes tecnologias:
 
-# frotend: Angular 9
-# Back-end:  Laravel (php 7)
-# Api é autenticada através do Json Web Token (JWT)
+frotend: Angular 9
+
+Back-end:  Laravel (php 7)
+
+Api é autenticada através do Json Web Token (JWT)
 
 para listar, actualizar, criar ou deletar um item via Api, o usuário deve possuir um token valido...
 
@@ -22,7 +24,11 @@ Angular CLI
 Tanto os módulos do PHP como angular cli devem estar instalados e reconhecíveis via linha de comando.
 
 # PASSO 0
+baixar as dependencias frontend
 
+executar dentro do diretorio frontend: npm start 
+
+executar dentro do diretorio backend: composer upgrade
 
 # PASSO 1 (linha de comandos cmd)
 Dentro do diretório frontend 
